@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Tree</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .tree-container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .member {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Family Tree</h1>
+    </header>
+    <div class="tree-container">
+        <h2>Family Tree Viewer</h2>
+        <p id="tree-display">👴 Grandfather<br>👵 Grandmother<br>👨‍👩‍👧 Father & Mother<br>🧒 Child 1<br>👧 Child 2</p>
+        <h3>Edit Family Tree</h3>
+        <textarea id="tree-editor">👴 Grandfather\n👵 Grandmother\n👨‍👩‍👧 Father & Mother\n🧒 Child 1\n👧 Child 2</textarea>
+        <button onclick="updateTree()">Update Family Tree</button>
+    </div>
+
+    <script>
+        function updateTree() {
+            const newTree = document.getElementById('tree-editor').value;
+            const treeDisplay = document.getElementById('tree-display');
+            treeDisplay.innerHTML = newTree.replace(/\n/g, '<br>');
+        }
+    </script>
+</body>
+</html>
